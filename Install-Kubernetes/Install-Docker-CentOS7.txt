@@ -72,3 +72,13 @@ Turn off Firewall
     [keyfile]
     unmanaged-devices=interface-name:cali*;interface-name:tunl*
     EOF
+
+
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
+sudo kubeadm init
+# kubeadm init
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    export KUBECONFIG=/etc/kubernetes/admin.conf
